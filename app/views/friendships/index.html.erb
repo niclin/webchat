@@ -13,7 +13,7 @@
       <tr>
         <td><%= friend.name %></td>
         <td><%= friend.email %></td>
-        <td><%= link_to 'Conversation' %></td>
+        <td><%= link_to 'Conversation', conversations_path(:sender_id => current_user.id, :recipient_id => friend.id), method: :post %></td>
       </tr>
       <% end %>
     </tbody>
