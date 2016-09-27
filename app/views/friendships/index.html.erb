@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Conversation</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @friends.each do |friend| %>
+      <tr>
+        <td><%= friend.name %></td>
+        <td><%= friend.email %></td>
+        <td><%= link_to 'Conversation' %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
