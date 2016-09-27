@@ -5,7 +5,9 @@
       <tr>
         <th>Name</th>
         <th>Email</th>
+        <th>Unread</th>
         <th>Conversation</th>
+        <th>Set</th>
       </tr>
     </thead>
     <tbody>
@@ -13,7 +15,9 @@
       <tr>
         <td><%= friend.name %></td>
         <td><%= friend.email %></td>
-        <td><%= link_to 'Conversation', conversations_path(:sender_id => current_user.id, :recipient_id => friend.id), method: :post %></td>
+        <td><%= friend.unread(current_user, friend) %></td>
+        <td><%= link_to 'Conversation', conversations_path(:sender_id => current_user.id, :recipient_id => friend.id), method: :post , class: 'btn btn-primary' %></td>
+        <td><%= link_to 'delete',friendship_path(friend), method: :delete, class: 'btn btn-danger', data: { confirm: "Delete this Friend?"}%></td>
       </tr>
       <% end %>
     </tbody>

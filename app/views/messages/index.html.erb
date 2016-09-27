@@ -13,6 +13,9 @@
             <div class="item">
               <i class="right triangle icon"></i>
               <%= message.body %>
+              <% unless current_user == user %>
+                <%= link_to 'delete', conversation_message_path(@conversation, message), method: :delete %>
+              <% end %>
             </div>
           </div>
         </div>
