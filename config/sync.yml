@@ -27,8 +27,8 @@ test:
   async: false
 
 production:
-  server: "http://localhost:9292/faye"
-  adapter_javascript_url: "http://localhost:9292/faye/faye.js"
+  server: "http://webchat-liulishuo.niclin.tw:9292/faye"
+  adapter_javascript_url: "http://webchat-liulishuo.niclin.tw:9292/faye/faye.js"
   adapter: "Faye"
   auth_token: "0794942c3ca7aba370499839ab0f0ea33e5665cfac0fcf0455e91ece9dc7d101"
   async: true
