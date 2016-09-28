@@ -39,9 +39,7 @@ class MessagesController < ApplicationController
     if @message.save
       sync_new @message
     end
-    respond_to do |format|
-      format.js { head :no_content  }
-    end
+    redirect_to :back
   end
 
   def destroy
@@ -49,11 +47,7 @@ class MessagesController < ApplicationController
     @message.destroy
     sync_destroy @message
 
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.js { head :no_content  }
-    end
-
+    redirect_to :back
   end
 
   private
