@@ -1,0 +1,17 @@
+<li class="<%= message.user_id == current_user.id ? "right" : "left" %> clearfix">
+  <span class="chat-img <%= message.user_id == current_user.id ? "pull-right" : "pull-left"%> ">
+    <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
+  </span>
+  <div class="chat-body clearfix">
+    <div class="header">
+      <% user = User.find(message.user_id) %>
+      <strong class="primary-font"><%= user.name %> </strong>
+    </div>
+    <p>
+      <%= message.body %>
+      <% unless current_user != user %>
+      <%= link_to 'delete', conversation_message_path(@conversation, message), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </p>
+  </div>
+</li>

@@ -3,12 +3,14 @@ class MessagesController < ApplicationController
     @conversation = Conversation.find(params[:conversation_id])
   end
 
+  respond_to :html, :js
+
   def index
     @messages = @conversation.messages
 
-    if @messages.length > 10
+    if @messages.length > 5
       @over_ten = true
-      @messages = @messages[-10..-1]
+      @messages = @messages[-5..-1]
     end
 
     if params[:m]
@@ -33,15 +35,25 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.new(message_params)
+
     if @message.save
-      redirect_to conversation_messages_path(@conversation)
+      sync_new @message
+    end
+    respond_to do |format|
+      format.js { head :no_content  }
     end
   end
 
   def destroy
     @message = @conversation.messages.find(params[:id])
     @message.destroy
-    redirect_to :back
+    sync_destroy @message
+
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { head :no_content  }
+    end
+
   end
 
   private

@@ -1,38 +1,35 @@
 <% if @over_ten %>
-   <%= link_to 'Show Previous', '?m=all' %>
+  <%= link_to 'Show Previous', '?m=all' %>
 <% end %>
 
-<div class="ui segment">
-  <% @messages.each do |message| %>
-    <% if message.body %>
-      <% user = User.find(message.user_id) %>
-      <div class="item">
-        <div class="content">
-          <div class="header"><strong><%= user.name %> :</strong></div>
-          <div class="list">
-            <div class="item">
-              <i class="right triangle icon"></i>
-              <%= message.body %>
-            <% unless current_user != user %>
-                <%= link_to 'delete', conversation_message_path(@conversation, message), method: :delete %>
-              <% end %>
-            </div>
-          </div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <span class="glyphicon glyphicon-comment"></span> Chat
+      </div>
+      <div class="panel-body" id="chat-body">
+        <ul class="chat">
+          <% @messages.each do |message| %>
+            <% if message.body %>
+              <%= sync partial: 'message_row', resource: message %>
+
+            <% end %>
+          <% end %>
+          <%= sync_new partial: 'message_row', resource: Message.new, direction: :append %>
+        </ul>
+      </div>
+      <div class="panel-footer">
+        <%= form_for [@conversation, @message], remote: true do |f| %>
+        <div class="input-group">
+          <%= f.text_area :body, class: "form-control input-sm", placeholder: "Type your message here..." %>
+          <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+          <span class="input-group-btn">
+            <%= f.submit "Send", class: "btn btn-warning btn-sm", id: "btn-chat" %>
+          </span>
+          <% end %>
         </div>
       </div>
-    <% end %>
-  <% end %>
+    </div>
+  </div>
 </div>
-
-
-
-<%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
-   <div class="form-group">
-    <%= f.text_area :body, class: "form-control" %>
-  </div>
-    <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-  <div>
-    <%= f.submit "Add Reply", class: "btn btn-primary" %>
-  </div>
-
-<% end %>
