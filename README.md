@@ -28,17 +28,17 @@
 
 初步的構想先在紙上畫出來，大致上構思如下：
 
-![](https://drops.azureedge.net/drops/files/acc_511160/1kiEq?rscd=inline%3B%20filename%3Dimage%252Fpng&rsct=image%2Fpng&se=2016-09-29T02%3A02%3A03Z&sig=mGO0qLePi5JQgpsflNpw2%2BbBneq1RaLr%2FyiB%2FUixk0A%3D&sp=r&sr=b&st=2016-09-29T01%3A02%3A03Z&sv=2013-08-15)
+![](https://raw.githubusercontent.com/niclin/webchat/master/images/1.png)
 
-![](https://drops.azureedge.net/drops/files/acc_511160/16btk?rscd=inline%3B%20filename%3Dimage%252Fpng&rsct=image%2Fpng&se=2016-09-29T02%3A02%3A50Z&sig=oQ0TurtcStDyLEwROP2n6M4GApz3JvETVSoeWoR4B3E%3D&sp=r&sr=b&st=2016-09-29T01%3A02%3A50Z&sv=2013-08-15)
+![](https://raw.githubusercontent.com/niclin/webchat/master/images/2.png)
 
 接下來在實作項目我用Redmine進行自我進度管理，目標是兩天內完成。
 
 將基本項目以及加分項目分開管理。
 
-![](https://drops.azureedge.net/drops/files/acc_511160/9JMz?rscd=inline%3B%20filename%3Dimage%252Fpng&rsct=image%2Fpng&se=2016-09-29T02%3A04%3A32Z&sig=YlQw%2F533rYpYHxOgQ4x6eIMNFS6l50D%2BxmHbuUI2amQ%3D&sp=r&sr=b&st=2016-09-29T01%3A04%3A32Z&sv=2013-08-15)
+![](https://raw.githubusercontent.com/niclin/webchat/master/images/3.png)
 
-![](https://drops.azureedge.net/drops/files/acc_511160/VRo0?rscd=inline%3B%20filename%3Dimage%252Fpng&rsct=image%2Fpng&se=2016-09-29T02%3A06%3A07Z&sig=vm1BPFiCcTsXtf7RtOb1UlKLJtTGAD5YPVvi7Hx2QhA%3D&sp=r&sr=b&st=2016-09-29T01%3A06%3A07Z&sv=2013-08-15)
+![](https://raw.githubusercontent.com/niclin/webchat/master/images/4.png)
 
 ### 實作
 
@@ -53,7 +53,7 @@
 
 這邊使用的是faye gem實作，在Local端運行正常，演示如下：
 
-![](https://drops.azureedge.net/drops/files/acc_511160/120kE?rscd=inline%3B%20filename%3Dimage%252Fgif&rsct=image%2Fgif&se=2016-09-29T02%3A16%3A37Z&sig=4Zy0oiXTWnhTceNe%2BP3OEqAEFwilNLy2JBjmfckAtc0%3D&sp=r&sr=b&st=2016-09-29T01%3A16%3A37Z&sv=2013-08-15)
+![](https://raw.githubusercontent.com/niclin/webchat/master/images/5.gif)
 
 但到了server端websocket部分失效，搜尋了一下問題，發現在Heroku上面容易遇到socket部屬不易的問題，由於時間有限，在整體評估下打算以Minimum Viable Product進行交付。
 
